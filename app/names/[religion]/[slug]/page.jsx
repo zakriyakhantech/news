@@ -370,8 +370,8 @@ export default async function NameDetailPage({ params }) {
               <span className="badge border border-nv-border bg-nv-accent-subtle text-nv-accent">
                 {relLabel} Name Meaning
               </span>
-              <h1 className="mt-3 break-words font-display text-4xl font-extrabold tracking-tight text-nv-text sm:text-5xl lg:text-6xl">
-                {n.name}
+              <h1 className="mt-3 break-words font-display text-3xl font-extrabold tracking-tight text-nv-text sm:text-4xl lg:text-5xl">
+                {n.seo.h1}
               </h1>
               {n.shortMeaning && (
                 <p className="mt-3 text-lg font-medium leading-relaxed text-nv-text-secondary sm:text-xl">
@@ -624,7 +624,7 @@ export default async function NameDetailPage({ params }) {
                 </div>
               )}
               {n.pronunciation.note && (
-                <p className="text-xs leading-relaxed text-nv-text-muted">{n.pronunciation.note}</p>
+                <p className="text-xs leading-relaxed text-nv-text-muted">Approximate romanization.</p>
               )}
             </div>
           </section>
@@ -635,7 +635,6 @@ export default async function NameDetailPage({ params }) {
               {n.name} and the number {n.luckyNumber}
             </h2>
             <div className="mt-4 space-y-3">
-              <p className="text-sm leading-relaxed text-nv-text-secondary">{n.numerologyMeaning}</p>
               <dl className="grid grid-cols-2 gap-3">
                 <div className="inset-panel">
                   <dt className="stat-label">Lucky number</dt>
@@ -670,27 +669,6 @@ export default async function NameDetailPage({ params }) {
             </div>
           </section>
         </div>
-
-        {/* ── LETTER SYMBOLISM ── */}
-        {n.acrostic.length > 0 && (
-          <section className="card p-6 sm:p-8">
-            <span className="eyebrow">Letter Symbolism</span>
-            <h2 className="section-title mt-1">Traditional symbolism of each letter in {n.name}</h2>
-            <p className="mt-2 text-sm text-nv-text-secondary">
-              Letter-based symbolism is a traditional interpretive system, not a linguistic property of the name.
-            </p>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
-              {n.acrostic.map((a, i) => (
-                <div key={i} className="flex items-center gap-3.5 rounded-2xl border border-nv-border bg-nv-subtle/40 p-3.5">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-nv-accent font-display text-lg font-bold text-white">
-                    {a.letter}
-                  </span>
-                  <span className="text-sm font-semibold leading-snug text-nv-text">{a.trait}</span>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
 
         {/* ── HISTORY ── */}
         {n.historicalSection.length > 0 && (
